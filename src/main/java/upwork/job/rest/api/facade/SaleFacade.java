@@ -1,10 +1,10 @@
 package upwork.job.rest.api.facade;
 
-import upwork.job.rest.api.facade.dto.SaleDto;
+import upwork.job.rest.api.facade.dto.pure.PureSale;
 
 /**
  * Created by MedBelmahi on 09/06/2017.
  */
 public interface SaleFacade {
-    SaleDto add(SaleDto saleDto);
+    PureSale add(PureSale saleDto);
 }

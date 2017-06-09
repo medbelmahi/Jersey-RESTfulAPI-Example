@@ -1,15 +1,11 @@
 package upwork.job.rest.api.facade.dto;
 
-import java.util.Date;
+import upwork.job.rest.api.facade.dto.pure.PureSale;
 
 /**
  * Created by MedBelmahi on 09/06/2017.
  */
-public class SaleDto {
-    public int sellerId;
-    public int buyerId;
-    public Date sellDate;
-    public double amount;
+public class SaleDto extends PureSale{
     public SellerDto seller;
     public BuyerDto buyer;
 

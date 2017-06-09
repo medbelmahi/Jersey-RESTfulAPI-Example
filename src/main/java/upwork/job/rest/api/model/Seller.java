@@ -7,7 +7,7 @@ import java.util.List;
  * Created by MedBelmahi on 09/06/2017.
  */
 @Entity
-@Table(name="SALE")
+@Table(name="SELLER")
 public class Seller extends GenericItem {
 
     @Column(name="PERMIT_NO")
