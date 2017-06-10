@@ -58,7 +58,7 @@ public class DefaultGenericDao implements GenericDao<GenericItem> {
 
     @Override
     public List<GenericItem> getAll(Class genericClass) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         Transaction tx = null;
         List genericItemList = new ArrayList();
         try {
@@ -68,8 +68,6 @@ public class DefaultGenericDao implements GenericDao<GenericItem> {
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
-        } finally {
-            session.close();
         }
 
         return genericItemList;

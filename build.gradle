@@ -36,4 +36,6 @@ gretty {
     contextPath = '/'
     servletContainer = 'jetty9'
     httpPort = 8050
+    debugPort = 5005      // default
+    debugSuspend = false   // default
 }

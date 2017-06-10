@@ -17,5 +17,4 @@ public interface SellerFacade {
 
     List<SellerDto> getAllSellersSalesBuyers();
 
-    List<SellerDto> getAllBuyerSales(int buyerId);
 }

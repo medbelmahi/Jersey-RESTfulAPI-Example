@@ -16,11 +16,11 @@ public class Sale extends GenericItem {
     public double amount;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "SELLER_ID", nullable = false)
     public Seller seller;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "BUYER_ID", nullable = false)
     public Buyer buyer;
 

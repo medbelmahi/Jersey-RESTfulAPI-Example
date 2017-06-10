@@ -1,7 +1,10 @@
 package upwork.job.rest.api.facade.converter.impl;
 
+import com.sun.jersey.api.core.InjectParam;
 import com.sun.jersey.spi.resource.Singleton;
 import upwork.job.rest.api.facade.converter.DefaultPopulator;
+import upwork.job.rest.api.facade.converter.impl.pure.PureBuyerPopulator;
+import upwork.job.rest.api.facade.converter.impl.pure.PureSellerPopulator;
 import upwork.job.rest.api.facade.dto.BuyerDto;
 import upwork.job.rest.api.facade.dto.SaleDto;
 import upwork.job.rest.api.facade.dto.SellerDto;
@@ -17,8 +20,10 @@ import java.text.SimpleDateFormat;
 @Singleton
 public class SalePopulator implements DefaultPopulator<Sale, SaleDto> {
 
-    private BuyerPopulator buyerPupulator = new BuyerPopulator();
-    private SellerPopulator sellerPupulator = new SellerPopulator();
+    @InjectParam
+    private PureBuyerPopulator pureBuyerPopulator;
+    @InjectParam
+    private PureSellerPopulator pureSellerPopulator;
 
     DateFormat df = new SimpleDateFormat("yyyyy-MM-dd");
 
@@ -26,10 +31,10 @@ public class SalePopulator implements DefaultPopulator<Sale, SaleDto> {
     public void populate(Sale sale, SaleDto saleDto) {
 
         BuyerDto buyer = new BuyerDto();
-        buyerPupulator.populate(sale.buyer, buyer);
+        pureBuyerPopulator.populate(sale.buyer, buyer);
         saleDto.buyer = buyer;
         SellerDto seller = new SellerDto();
-        sellerPupulator.populate(sale.seller, seller);
+        pureSellerPopulator.populate(sale.seller, seller);
         saleDto.seller = seller;
     }
 
@@ -42,8 +47,8 @@ public class SalePopulator implements DefaultPopulator<Sale, SaleDto> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        sale.buyer = buyerPupulator.convert(source.buyer);
-        sale.seller = sellerPupulator.convert(source.seller);
+        sale.buyer = pureBuyerPopulator.convert(source.buyer);
+        sale.seller = pureSellerPopulator.convert(source.seller);
         return sale;
     }
 

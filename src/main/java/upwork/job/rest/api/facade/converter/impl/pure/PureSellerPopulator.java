@@ -14,8 +14,8 @@ public class PureSellerPopulator implements DefaultPopulator<Seller, PureSeller>
     @Override
     public void populate(Seller seller, PureSeller pureSeller) {
         pureSeller.id = seller.id;
-        //pureSeller.name = seller.name;
-        pureSeller.permitNo = seller.permitNo;
+        pureSeller.name = seller.name;
+        pureSeller.permitId = seller.permitNo;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class PureSellerPopulator implements DefaultPopulator<Seller, PureSeller>
         Seller seller = new Seller();
         seller.id = source.id;
         seller.name = source.name;
-        seller.permitNo = source.permitNo;
+        seller.permitNo = source.permitId;
         return seller;
     }
 }

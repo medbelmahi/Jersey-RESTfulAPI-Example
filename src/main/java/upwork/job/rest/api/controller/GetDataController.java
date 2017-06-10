@@ -1,14 +1,16 @@
 package upwork.job.rest.api.controller;
 
 import com.sun.jersey.api.core.InjectParam;
-import upwork.job.rest.api.facade.dto.pure.PureSeller;
+import upwork.job.rest.api.facade.dto.SaleDto;
 import upwork.job.rest.api.facade.dto.SellerDto;
+import upwork.job.rest.api.facade.dto.pure.PureSeller;
+import upwork.job.rest.api.facade.impl.SaleFacadeImpl;
 import upwork.job.rest.api.facade.impl.SellerFacadeImpl;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -20,6 +22,8 @@ public class GetDataController {
 
     @InjectParam
     SellerFacadeImpl sellerFacade;
+    @InjectParam
+    SaleFacadeImpl saleFacade;
 
 
     @GET
@@ -44,9 +48,9 @@ public class GetDataController {
     }
 
     @GET
-    @Path("sales?buyerId={buyerId}")
+    @Path("sales")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SellerDto> getAllBuyerSales(@PathParam("buyerId") int buyerId) {
-        return sellerFacade.getAllBuyerSales(buyerId);
+    public List<SaleDto> getAllBuyerSales(@QueryParam("buyerId") int buyerId) {
+        return saleFacade.getAllBuyerSales(buyerId);
     }
 }

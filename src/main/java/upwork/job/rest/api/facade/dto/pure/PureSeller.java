@@ -5,6 +5,6 @@ package upwork.job.rest.api.facade.dto.pure;
  */
 public class PureSeller {
     public int id;
-    public int permitNo;
+    public int permitId;
     public String name;
 }

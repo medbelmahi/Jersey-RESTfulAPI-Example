@@ -17,7 +17,7 @@ public class Buyer extends GenericItem {
     @Column(name="NAME")
     public String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "buyer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "buyer")
     public List<Sale> sales;
 
 }

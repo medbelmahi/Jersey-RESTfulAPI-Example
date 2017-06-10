@@ -19,13 +19,13 @@ import java.util.List;
 public class BuyerPopulator implements DefaultPopulator<Buyer, BuyerDto> {
 
     @InjectParam
-    SalePopulator salePopulator;
+    private SalePopulator salePopulator;
     @InjectParam
-    PureBuyerPopulator pureBuyerPopulator;
+    private PureBuyerPopulator pureBuyerPopulator;
 
     @Override
     public void populate(Buyer buyer, BuyerDto buyerDto) {
-        pureBuyerPopulator.populate(buyer, buyerDto);
+        this.pureBuyerPopulator.populate(buyer, buyerDto);
         List<SaleDto> sales = new ArrayList<>();
         for (Sale sale : buyer.sales) {
             SaleDto saleDto = new SaleDto();

@@ -15,6 +15,7 @@
 			<param-name>com.sun.jersey.config.property.packages</param-name>
 			<param-value>upwork.job.rest.api.controller
 						,upwork.job.rest.api.facade.impl
+						,upwork.job.rest.api.facade.converter.impl.pure
 						,upwork.job.rest.api.facade.converter.impl
 						,upwork.job.rest.api.service.impl
 						,upwork.job.rest.api.repository.impl
