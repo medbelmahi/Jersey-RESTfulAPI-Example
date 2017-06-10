@@ -11,8 +11,9 @@
         <property name="hibernate.connection.pool_size">10</property>
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.import_files">restfulapi.sql</property>
 
         <mapping class="upwork.job.rest.api.model.Buyer"/>
         <mapping class="upwork.job.rest.api.model.Sale"/>
